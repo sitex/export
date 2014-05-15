@@ -1,0 +1,15 @@
+{
+	"name": "Export",
+	"description": "Export plugin for Users",
+
+	"author": "Author Name",
+	"authorEmail": "author@export.com",
+	"authorUrl": "http://export.com",
+
+	"dependencies": {
+		"plugins": [
+			"acl",
+			"extensions"
+		]
+	}
+}
