@@ -59,9 +59,12 @@ class CsvHelper extends AppHelper {
 	}
 
 	public function renderHeaders() {
-	    header('Content-Type: text/csv');
-	    header("Content-type:application/vnd.ms-excel");
-	    header("Content-disposition:attachment;filename=".$this->filename);
+		header('Content-Encoding: UTF-8');
+		header('Content-type: text/csv; charset=UTF-8');
+		header("Content-disposition:attachment;filename=".$this->filename);
+
+		echo "\xEF\xBB\xBF"; // UTF-8 BOM
+
 	}
 
 	public function setFilename($filename) {
