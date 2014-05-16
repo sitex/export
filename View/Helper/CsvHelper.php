@@ -14,7 +14,7 @@ App::uses('AppHelper', 'View/Helper');
  */
 class CsvHelper extends AppHelper {
 
-	var $delimiter = ',';
+	var $delimiter = ';';
 	var $enclosure = '"';
 	var $filename = 'Export.csv';
 	var $line = array();
