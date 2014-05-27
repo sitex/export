@@ -32,6 +32,11 @@ class ExportHelper extends AppHelper {
  */
 	public function beforeRender($viewFile) {
 
+		$role_id = null;
+		if (isset($this->request->query['role_id'])) {
+			$role_id = $this->request->query['role_id'];
+		}
+
 		$link = $this->_View->Croogo->adminAction(
 			__d('croogo', 'New User'),
 			array('action' => 'add'),
@@ -40,7 +45,7 @@ class ExportHelper extends AppHelper {
 
 		$link .= $this->_View->Croogo->adminAction(
 			__d('croogo', 'Export'),
-			array('plugin' => 'export', 'controller' => 'export', 'action' => 'index'),
+			array('plugin' => 'export', 'controller' => 'export', 'action' => 'index', $role_id),
 			array('button' => 'primary', 'target' => '_blank')
 		);
 

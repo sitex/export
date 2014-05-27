@@ -10,5 +10,5 @@ foreach ($users as $user) {
 	$this->Csv->addRow($line);
 }
 
-$filename = 'registered_'.date('d-m-Y', time());
+$filename = 'users_'.date('d-m-Y', time());
 echo $this->Csv->render($filename);

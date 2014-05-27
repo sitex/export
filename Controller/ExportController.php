@@ -37,13 +37,19 @@ class ExportController extends ExportAppController {
  *
  * @return void
  */
-	public function admin_index() {
+	public function admin_index( $role_id = null ) {
 		$this->set('title_for_layout', 'Export');
 
 		$conditions = array(
 			'Role.alias' => 'registered',	// Registered
 			'User.status' => true,			// Varified
-			);	
+		);
+
+		if ($role_id) {
+			unset($conditions['Role.alias']);
+			$conditions['Role.id'] = $role_id;
+		}
+
 		$order = array('User.created DESC');
 		$fields = array('User.name','User.email','User.created');
 		$users = $this->User->find('all', compact('conditions','order','fields'));
